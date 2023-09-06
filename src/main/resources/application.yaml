@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/test_db
+    username: test_username
+    password: test_password
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+application:
+  base-path: /api
+  api-version: /v1
+  countries-path: /countries
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: TRACE
+
