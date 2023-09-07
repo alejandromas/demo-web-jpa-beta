@@ -1,0 +1,15 @@
+{
+  "properties": [
+    {
+      "name": "application.base-path",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "application.api-version",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "application.countries-path",
+      "type": "java.lang.String"
+    }
+  ] }
