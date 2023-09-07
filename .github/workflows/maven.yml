@@ -49,6 +49,9 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        repository: alejandromas/demo
         context: .
         push: true
         tags: ${{github.run_number}}
