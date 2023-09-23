@@ -9,9 +9,9 @@ on:
 env:
   AWS_REGION: eu-west-3
   ECS_TASK_DEFINITION: task_definition.json
-  CONTAINER_NAME: demo-container
-  ECS_SERVICE: demo-service2
-  ECS_CLUSTER: demo-cluster
+  CONTAINER_NAME: demo-container5
+  ECS_SERVICE: demo-service-5
+  ECS_CLUSTER: demo-cluster-5
   AWS_REPOSITORY: demo-repository
 
 jobs:
