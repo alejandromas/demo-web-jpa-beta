@@ -1,5 +1,4 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:470258907502:task-definition/demo-task-definition:4",
   "containerDefinitions": [
     {
       "name": "demo-container",
