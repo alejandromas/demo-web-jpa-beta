@@ -16,7 +16,7 @@ on:
 
 env:
   AWS_REGION: eu-west-3
-  ECS_TASK_DEFINITION: demo-task-definition
+  ECS_TASK_DEFINITION: task_definition.json
   CONTAINER_NAME: demo-container
   ECS_SERVICE: demo-service
   ECS_CLUSTER: demo-cluster
@@ -87,6 +87,7 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
     - name: Build, tag, and push docker image to Amazon ECR
+      id: build-image
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: ${{ env.AWS_REPOSITORY }}
@@ -96,38 +97,18 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
-#    - name: Build, tag, and push image to Amazon ECR
-#      id: build-image
-#      env:
-#        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-#        IMAGE_TAG: ${{ github.sha }}
-#      run: |
-#        # Build a docker container and
-#        # push it to ECR so that it can
-#        # be deployed to ECS.
-#        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-#        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-#        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-
-#  deploy:
-#    needs: docker
-#    runs-on: ubuntu-latest
-#    steps:
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: demo-task-definition
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
-        wait-for-service-stability: true
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition: ${{ steps.demo-task-definition.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
