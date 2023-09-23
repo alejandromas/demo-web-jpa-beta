@@ -1,14 +1,22 @@
 {
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:470258907502:task-definition/demo-task-definition:4",
   "containerDefinitions": [
     {
       "name": "demo-container",
-      "image": "470258907502.dkr.ecr.eu-west-3.amazonaws.com/demo-repository/app:latest",
-      "cpu": 0,
+      "image": "/:ea60394aced7fded6d0b98447af03e96247f458c",
+      "cpu": 1,
       "memory": 1024,
       "portMappings": [
         {
           "name": "demo-container-8080-tcp",
           "containerPort": 8080,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        },
+        {
+          "name": "demo-container-80-tcp",
+          "containerPort": 80,
           "hostPort": 8080,
           "protocol": "tcp",
           "appProtocol": "http"
@@ -16,10 +24,8 @@
       ],
       "essential": true,
       "environment": [],
-      "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
@@ -27,8 +33,7 @@
           "awslogs-group": "/ecs/demo-task-definition",
           "awslogs-region": "eu-west-3",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
+        }
       },
       "resourceRequirements": [
         {
@@ -41,8 +46,33 @@
   "family": "demo-task-definition",
   "executionRoleArn": "arn:aws:iam::470258907502:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
+  "revision": 4,
   "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
   "placementConstraints": [],
+  "compatibilities": [
+    "EC2"
+  ],
   "requiresCompatibilities": [
     "EC2"
   ],
@@ -52,5 +82,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
+  "registeredAt": "2023-09-23T14:39:52.325Z",
+  "registeredBy": "arn:aws:iam::470258907502:user/demo-user",
   "tags": []
 }
