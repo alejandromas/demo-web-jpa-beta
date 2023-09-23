@@ -1,5 +1,4 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:470258907502:task-definition/demo-task-definition:1",
   "containerDefinitions": [
     {
       "name": "demo-container",
@@ -42,39 +41,8 @@
   "family": "demo-task-definition",
   "executionRoleArn": "arn:aws:iam::470258907502:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 1,
   "volumes": [],
-  "status": "ACTIVE",
-  "requiresAttributes": [
-    {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "name": "ecs.capability.task-eni"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-    }
-  ],
   "placementConstraints": [],
-  "compatibilities": [
-    "EC2"
-  ],
   "requiresCompatibilities": [
     "EC2"
   ],
@@ -84,7 +52,5 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-09-23T11:21:56.978Z",
-  "registeredBy": "arn:aws:iam::470258907502:root",
   "tags": []
 }
