@@ -51,7 +51,7 @@ jobs:
 
   deploy:
     needs: build
-    name: Deploy to EB (AWS)
+    name: Deploy to EBS (AWS)
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
@@ -72,6 +72,8 @@ jobs:
           use_existing_version_if_available: true
           region: ${{ env.AWS_REGION }}
           deployment_package: ${{ env.ARTIFACT_NAME }}-${{ env.ARTIFACT_VERSION }}.jar
+          wait_for_deployment: true
+          version_description: ${{github.SHA}}
 
       - name: Delete artifact
         if: always()
