@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alejandromas</groupId>
-	<artifactId>demo-web-jpa-beta-2</artifactId>
+	<artifactId>demo-web-jpa-beta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo-web-jpa-beta-2</name>
+	<name>demo-web-jpa-beta</name>
 	<description>Demo project for Spring Boot Web JPA</description>
 	<properties>
 		<java.version>17</java.version>

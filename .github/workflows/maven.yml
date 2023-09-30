@@ -16,8 +16,8 @@ env:
 
 
 
-  AWS_ENVIRONMENT_NAME: demo-web-jpa-beta-2-env
-  ARTIFACT_NAME: demo-web-jpa-beta-2
+  AWS_ENVIRONMENT_NAME: demo-web-jpa-beta-env
+  ARTIFACT_NAME: demo-web-jpa-beta
   ARTIFACT_VERSION: 0.0.1-SNAPSHOT
 
 jobs:
