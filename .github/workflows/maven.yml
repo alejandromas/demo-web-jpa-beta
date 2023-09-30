@@ -48,7 +48,7 @@ jobs:
 
   deploy:
     needs: build
-    name: Deploy to EB (AWS)
+    name: Deploy to EBS (AWS)
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
