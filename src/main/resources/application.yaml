@@ -1,3 +1,4 @@
+
 spring:
   datasource:
     url: jdbc:h2:mem:test_db
@@ -22,4 +23,5 @@ logging:
     org:
       springframework:
         cache: TRACE
-
+server:
+  port: 80
