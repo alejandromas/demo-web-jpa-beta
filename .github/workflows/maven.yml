@@ -59,7 +59,8 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}
 
       - name: Deploy to EBS
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ success() }}
+#        if: ${{ github.ref == 'refs/heads/main' }}
         uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
