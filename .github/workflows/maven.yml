@@ -52,7 +52,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ success() }}
+#        if: ${{ github.ref == 'refs/heads/main' }}
         uses: actions/download-artifact@v3
         with:
           name: ${{ env.ARTIFACT_NAME }}
