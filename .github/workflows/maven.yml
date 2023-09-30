@@ -42,6 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACT_NAME }}
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
           path: target/${{ env.ARTIFACT_NAME }}-${{ env.ARTIFACT_VERSION }}.jar
 
   deploy:
