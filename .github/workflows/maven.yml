@@ -59,7 +59,7 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}
 
       - name: Deploy to EBS
-        if: ${{ success() }}
+#        if: ${{ success() }}
 #        if: ${{ github.ref == 'refs/heads/main' }}
         uses: einaregilsson/beanstalk-deploy@v21
         with:
