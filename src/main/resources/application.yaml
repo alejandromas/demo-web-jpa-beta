@@ -25,5 +25,3 @@ logging:
         cache: TRACE
 server:
   port: 80
-
-
