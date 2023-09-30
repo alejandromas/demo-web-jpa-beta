@@ -14,6 +14,8 @@ env:
 #  ECS_CLUSTER: demo-cluster-5
 #  AWS_REPOSITORY: demo-repository
 
+
+
   AWS_ENVIRONMENT_NAME: demo-web-jpa-beta-2-env
   ARTIFACT_NAME: demo-web-jpa-beta-2
   ARTIFACT_VERSION: 0.0.1-SNAPSHOT
