@@ -30,6 +30,7 @@ public class DemoWebJpaBetaApplication implements CommandLineRunner {
     }
 
     private void populateDatabase() {
+        //comentarios
         final Country colombia = new Country();
         colombia.setName("Colombia");
         colombia.setPopulation(BigDecimal.valueOf(1000000));
